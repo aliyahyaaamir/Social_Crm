@@ -1,3 +1,4 @@
+require "pry"
 require_relative "./contact_database"
 # require_relative "./database_runner"
 
@@ -68,13 +69,11 @@ class Database
 		counter1 = 0						   
 	
 		while (true)
-			puts "hi"
-		
 			if ((@databasearray[counter1][1]) == (delete_name))###why does this not work
-				puts "check"
-				#@databasearray.delete_at(counter1)
-				false
+				@databasearray.delete_at(counter1)
+				break
 			end
+			# binding.pry
 			counter1 += 1
 		end
 

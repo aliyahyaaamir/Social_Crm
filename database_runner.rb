@@ -55,7 +55,6 @@ class Runner
 		while (new == true)
 		user_input = gets.chomp
 		if user_input == 'add'
-			counter += 1 #may not even need the create ID method
 			# c.create_id(counter)
 
 			puts "Enter your first name"
@@ -73,6 +72,7 @@ class Runner
 			b.create(counter, firstname, lastname, email, notes)
 			b.c.create_id(counter)
 			b.add(counter)
+			counter += 1 #may not even need the create ID method
 			puts "\e[H\e[2J"
 			menu
 
