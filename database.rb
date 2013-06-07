@@ -47,13 +47,11 @@ class Database
 	counter2 = 0						   
 	
 		while (true)
-			puts "hi"
-		
 			if ((@databasearray[counter2][1]) == (delete_name))###why does this not work
-				puts "check"
-				#@databasearray.delete_at(counter1)
-				false
+				@databasearray.delete_at(counter2)
+				break
 			end
+			# binding.pry
 			counter2 += 1
 		end
 

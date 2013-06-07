@@ -20,6 +20,7 @@ class Runner
 		puts "Type 'modify' to modify a contact attribute\n"
 		puts "Type 'display all' to display all contacts\n"
 		puts "Type 'display contact' to display contact\n"
+		puts "Type 'display particular contact' to display particular contact\n"
 		puts "Type 'display attribute' to display attribute\n"
 		puts "Type 'delete' to delete contact\n"
 		puts "Type 'exit' to leave the crm\n\n"
@@ -38,6 +39,7 @@ class Runner
 		puts "Type 'modify' to modify a contact attribute\n"
 		puts "Type 'display all' to display all contacts\n"
 		puts "Type 'display contact' to display contact\n"
+		puts "Type 'display particular contact' to display particular contact\n"
 		puts "Type 'display attribute' to display attribute\n"
 		puts "Type 'delete' to delete contact\n"
 		puts "Type 'exit' to leave the crm\n\n"
@@ -98,6 +100,10 @@ class Runner
 			puts "Enter the first name of the user you wish to delete"
 			delete_name = gets.chomp
 			b.delete_contact(delete_name)
+			puts "\e[H\e[2J"
+			menu
+			puts "#{delete_name} was deleted\n"
+
 		end
 
 	end
