@@ -22,25 +22,46 @@ class Database
 		puts @databasearray[counter] #id-1 can be the indice (i.e. I display 1 to the first user)
 	end
 
-	# def modify_contact(pass variable in) #need to access varibales
+	def modify_contact(name,attribute) #need to access varibales
+			@databasearray.each do |b|
+				b.each do |c|
+					if c == name
+					puts b.index(c)
+					end
+				end
+			end
 
-	# 	if some_variable == 'id'
-	# 		call some method
-	# 	elsif some_varibale == 'first name'
-	# 		call some method in class #gets.chomp the input and feeds it
-	# 		#the instance variable => that I need to update database
-	# 	elsif some_varibale == 'last name'
-	# 		call some method again
-	# 	elsif some_variable == 'notes'
-	# 		call some method again
-
-	# end
+	end
 
 	def display_all_contacts
 		puts "hello back"
-		@databasearray.each do |d|
-				puts d #may need to use flatten if I create
+		# @databasearray.each do |d|
+		# 		puts d #may need to use flatten if I create
+
+		count1 = 0
+
+		while(true)
+			var = true
+			@databasearray[count1]
+				while(var)
+					count = 0
+					puts "\nID:             #{@databasearray[count1][count]}"
+					count += 1
+					puts "First Name:     #{@databasearray[count1][count]}"
+					count += 1
+					puts "Last Name:      #{@databasearray[count1][count]}"
+					count += 1
+					puts "Email:          #{@databasearray[count1][count]}"
+					count +=1
+					puts "Notes:          #{@databasearray[count1][count]}"
+					var = false
+				end
+				count1 += 1
+				if count1 == @databasearray.length
+					break
+				end
 		end
+
 	end
 
 	def display_particular_contact(x)

@@ -86,6 +86,9 @@ class Runner
 			puts "Enter the contact attribute you wish to change"
 			modify_attribute = gets.chomp
 
+			b.modify_contact(modify_firstname, modify_attribute)
+
+
 		elsif user_input == 'display all' #raise an exception here if there is no contact
 				b.display_all_contacts
 		elsif user_input == 'exit'
@@ -103,6 +106,11 @@ class Runner
 			puts "\e[H\e[2J"
 			menu
 			puts "#{delete_name} was deleted\n"
+
+		# elsif user_input == 'display particular contact'
+
+		# 	display_particular_contact(x)
+
 
 		end
 
