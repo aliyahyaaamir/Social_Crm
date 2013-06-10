@@ -1,13 +1,11 @@
 require "pry"
 require_relative "./contact_database"
-# require_relative "./database_runner"
 
 class Database
 	attr_accessor :contacts
 
 	def initialize
 		@contacts = []
-
 	end
 
 	def modify_contact(name,attribute,change_in_attribute) #need to access varibales
@@ -25,7 +23,6 @@ class Database
 					end
 				end
 			end
-
 	end
 
 	def display_all_contacts
@@ -37,34 +34,35 @@ class Database
 	end
 
 	def display_particular_contact(contact_name)
-
 		@contacts.each do |contact|
 			if contact.firstname == contact_name
-				puts "ID: 	#{contact.id}\nFirst Name: 	#{contact.firstname}\nLast Name: 	#{contact.lastname}\nEmail: 	#{contact.email}\nNotes: 	#{contact.notes}"
+				puts "ID: 	#{contact.id}\nFirst Name: 	#{contact.firstname}\nLast Name: 	#{contact.lastname}\nEmail: 	#{contact.email}\nNotes: 	#{contact .notes}"
 			end
 		end
-
-
 	end
 
 
-	def info_by_attribute
+	def info_by_attribute(attribute)
+		@contacts.each do |contact|
 
+			if attribute == "last name"
+				puts "\nFirst Name: 	#{contact.firstname}\nLast Name: 	#{contact.lastname}"
+			elsif attribute == "email"
+				puts "\nFirst Name: 	#{contact.firstname}\nEmail: 	#{contact.email}"
+			elsif attribute == "notes"
+				puts "\nFirst Name: 	#{contact.firstname}\nNotes: 	#{contact.notes}"
+			end
+		end
 	end
 
-	def delete_contact(delete_name)	#want to iterate over the 2-D array
-									#second index
-		counter1 = 0						   
+	def delete_contact(delete_name)
 	
-		while (true)
-			if ((@databasearray[counter1][1]) == (delete_name))###why does this not work
-				@databasearray.delete_at(counter1)
-				break
+		@contacts.each do |contact|
+			if contact.firstname == delete_name
+				contact.delete(self)
 			end
-			# binding.pry
-			counter1 += 1
 		end
-
 	end
+
 
 end 
