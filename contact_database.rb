@@ -10,13 +10,4 @@ class Contact
 		db.contacts << self
 	end
 
-	def display_contact
-		puts "ID:             #{id}"
-		puts "First Name:     #{firstname}"
-		puts "Last Name:      #{lastname}"
-		puts "Email:          #{email}"
-		puts "Notes:          #{notes}"
-
-	end
-
 end

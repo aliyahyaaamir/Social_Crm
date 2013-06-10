@@ -39,7 +39,6 @@ class Runner
 
 	def self.get_input
 
-		# @c = Contact.new
 		db = Database.new
 		new = true
 		id = 0
