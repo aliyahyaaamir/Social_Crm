@@ -3,30 +3,25 @@ require_relative "./contact_database"
 # require_relative "./database_runner"
 
 class Database
-	attr_accessor :databasearray, :c
+	attr_accessor :contacts
 
 	def initialize
-		@c
-		@databasearray = []
-	end
-
-	def create (counter, firstname, lastname, email, notes)
-
-		@c = Contact.new(counter, firstname, lastname, email, notes)
+		@contacts = []
 
 	end
 
-	def add(counter)#either an argument or access the instance variable
-		puts "hello"
-		@databasearray[counter] = @c.contact
-		puts @databasearray[counter] #id-1 can be the indice (i.e. I display 1 to the first user)
-	end
+	def modify_contact(name,attribute,change_in_attribute) #need to access varibales
 
-	def modify_contact(name,attribute) #need to access varibales
-			@databasearray.each do |b|
-				b.each do |c|
-					if c == name
-					puts b.index(c)
+			@contacts.each do |contact|
+				if contact.firstname == name
+					if attribute == "first name"
+						contact.firstname = change_in_attribute
+					elsif attribute == "last name"
+						contact.lastname = change_in_attribute
+					elsif attribute == "email"
+						contact.email = change_in_attribute
+					elsif attribute == "notes"
+						contact.notes = change_in_attribute
 					end
 				end
 			end
@@ -34,47 +29,16 @@ class Database
 	end
 
 	def display_all_contacts
-		puts "hello back"
-		# @databasearray.each do |d|
-		# 		puts d #may need to use flatten if I create
 
-		count1 = 0
-
-		while(true)
-			var = true
-			@databasearray[count1]
-				while(var)
-					count = 0
-					puts "\nID:             #{@databasearray[count1][count]}"
-					count += 1
-					puts "First Name:     #{@databasearray[count1][count]}"
-					count += 1
-					puts "Last Name:      #{@databasearray[count1][count]}"
-					count += 1
-					puts "Email:          #{@databasearray[count1][count]}"
-					count +=1
-					puts "Notes:          #{@databasearray[count1][count]}"
-					var = false
-				end
-				count1 += 1
-				if count1 == @databasearray.length
-					break
-				end
+		@contacts.each do |c|
+			puts "ID: 	#{c.id}\nFirst Name: 	#{c.firstname}\nLast Name: 	#{c.lastname}\nEmail: 	#{c.email}\nNotes: 	#{c.notes}"
 		end
 
 	end
 
 	def display_particular_contact(x)
-	counter2 = 0						   
-	
-		while (true)
-			if ((@databasearray[counter2][1]) == (delete_name))###why does this not work
-				@databasearray.delete_at(counter2)
-				break
-			end
-			# binding.pry
-			counter2 += 1
-		end
+
+
 
 	end
 
