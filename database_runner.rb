@@ -2,23 +2,6 @@ require_relative "./contact_database"
 require_relative "./database"
 class Runner
 
-	def self.display_main_menu #this method can also be in runner
-
-		puts "Welcome to the Ruby Crm!!!\n"
-
-
-		puts "\n\n\nType 'add' in order to add a contact\n"
-		puts "Type 'modify' to modify a contact attribute\n"
-		puts "Type 'display all' to display all contacts\n"
-		puts "Type 'display contact' to display a particular contact\n"
-		puts "Type 'display attribute' to display all contacts according to that attribute\n"
-		puts "Type 'delete' to delete contact\n"
-		puts "Type 'exit' to leave the crm\n\n"
-
-		get_input
-
-	end
-
 	def self.menu
 
 
@@ -39,6 +22,7 @@ class Runner
 
 	def self.get_input
 
+		menu
 		db = Database.new
 		new = true
 		id = 0
@@ -47,33 +31,37 @@ class Runner
 		if user_input == 'add'
 
 			puts "Enter your first name"
-			firstname = gets.chomp
+			firstname = gets.chomp.downcase
 
 			puts "Enter your last name\n"
-			lastname = gets.chomp
+			lastname = gets.chomp.downcase
 			
 			puts "Enter your email\n"
-			email = gets.chomp
+			email = gets.chomp.downcase
 
 			puts "Enter your notes\n"
-			notes = gets.chomp
+			notes = gets.chomp.downcase
 
 			contact = Contact.new(id: id, firstname: firstname, lastname: lastname, email: email, notes: notes)
 			contact.save(db)
 			id += 1
 			puts "\e[H\e[2J"
+			puts "-----------------------------------"
+			puts "#{firstname} was saved as a contact"
+			puts "-----------------------------------"
+
 			menu
 
 
 		elsif user_input == 'modify'
 			puts "Enter the firstname of the contact you wish to modify"
-			modify_firstname = gets.chomp
+			modify_firstname = gets.chomp.downcase
 
 			puts "Enter the contact attribute you wish to change"
-			modify_attribute = gets.chomp
+			modify_attribute = gets.chomp.downcase
 
 			puts "Enter the change you wish to make"
-			attribute_change = gets.chomp
+			attribute_change = gets.chomp.downcase
 
 			db.modify_contact(modify_firstname, modify_attribute, attribute_change)
 
@@ -86,23 +74,29 @@ class Runner
 
 		elsif user_input == 'display contact'
 			puts "Enter the first name of the contact you wish to display"
-			contact_name = gets.chomp
+			contact_name = gets.chomp.downcase
 			db.display_particular_contact(contact_name)
 
 		elsif user_input == 'display attribute'
 			puts "Enter the attribute you wish to see all contacts according to"
-			contact_attribute = gets.chomp
+			contact_attribute = gets.chomp.downcase
 			db.info_by_attribute(contact_attribute)
 
 		elsif user_input == 'delete'
 			puts "Enter the first name of the user you wish to delete"
-			delete_name = gets.chomp
-			db.delete_contact(delete_name)
+			delete_name = gets.chomp.downcase
 			puts "\e[H\e[2J"
+
+			if (db.delete_contact(delete_name) == true)
+				puts "-----------------------------------"
+				puts "#{delete_name} was deleted\n"
+				puts "-----------------------------------"
+			else
+				puts "-----------------------------------"
+				puts "#{delete_name} was not found in contacts\n"
+				puts "-----------------------------------"
+			end
 			menu
-			puts "#{delete_name} was deleted\n"
-
-
 		end
 
 	end
@@ -110,5 +104,5 @@ class Runner
 
 end
 
-Runner.display_main_menu
+Runner.get_input
 

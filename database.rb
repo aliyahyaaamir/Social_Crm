@@ -8,7 +8,7 @@ class Database
 		@contacts = []
 	end
 
-	def modify_contact(name,attribute,change_in_attribute) #need to access varibales
+	def modify_contact(name,attribute,change_in_attribute)
 
 			@contacts.each do |contact|
 				if contact.firstname == name
@@ -28,7 +28,7 @@ class Database
 	def display_all_contacts
 
 		@contacts.each do |c|
-			puts "ID: 	#{c.id}\nFirst Name: 	#{c.firstname}\nLast Name: 	#{c.lastname}\nEmail: 	#{c.email}\nNotes: 	#{c.notes}"
+			puts "\nID: 	        #{c.id}\nFirst Name: 	#{c.firstname}\nLast Name: 	#{c.lastname}\nEmail: 	        #{c.email}\nNotes: 	        #{c.notes}"
 		end
 
 	end
@@ -49,6 +49,8 @@ class Database
 				puts "\nFirst Name: 	#{contact.firstname}\nLast Name: 	#{contact.lastname}"
 			elsif attribute == "email"
 				puts "\nFirst Name: 	#{contact.firstname}\nEmail: 	#{contact.email}"
+			elsif attribute == "id"
+				puts "\nFirst Name: 	#{contact.firstname}\nID: 	#{contact.id}"
 			elsif attribute == "notes"
 				puts "\nFirst Name: 	#{contact.firstname}\nNotes: 	#{contact.notes}"
 			end
@@ -59,7 +61,8 @@ class Database
 	
 		@contacts.each do |contact|
 			if contact.firstname == delete_name
-				contact.delete(self)
+				@contacts.delete(contact)
+				return true
 			end
 		end
 	end
