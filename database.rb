@@ -36,8 +36,13 @@ class Database
 
 	end
 
-	def display_particular_contact(x)
+	def display_particular_contact(contact_name)
 
+		@contacts.each do |contact|
+			if contact.firstname == contact_name
+				puts "ID: 	#{contact.id}\nFirst Name: 	#{contact.firstname}\nLast Name: 	#{contact.lastname}\nEmail: 	#{contact.email}\nNotes: 	#{contact.notes}"
+			end
+		end
 
 
 	end

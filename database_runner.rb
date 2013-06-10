@@ -10,7 +10,7 @@ class Runner
 		puts "\n\n\nType 'add' in order to add a contact\n"
 		puts "Type 'modify' to modify a contact attribute\n"
 		puts "Type 'display all' to display all contacts\n"
-		puts "Type 'display contact' to display contact\n"
+		puts "Type 'display contact' to display a particular contact\n"
 		puts "Type 'display attribute' to display attribute\n"
 		puts "Type 'delete' to delete contact\n"
 		puts "Type 'exit' to leave the crm\n\n"
@@ -28,8 +28,7 @@ class Runner
 		puts "\n\n\nType 'add' in order to add a contact\n"
 		puts "Type 'modify' to modify a contact attribute\n"
 		puts "Type 'display all' to display all contacts\n"
-		puts "Type 'display contact' to display contact\n"
-		puts "Type 'display particular contact' to display particular contact\n"
+		puts "Type 'display contact' to display a particular contact\n"
 		puts "Type 'display attribute' to display attribute\n"
 		puts "Type 'delete' to delete contact\n"
 		puts "Type 'exit' to leave the crm\n\n"
@@ -87,7 +86,10 @@ class Runner
 			new = false
 
 		elsif user_input == 'display contact'
-			b.c.display_contact 
+			puts "Enter the first name of the contact you wish to display"
+			contact_name = gets.chomp
+			db.display_particular_contact(contact_name)
+
 		elsif user_input == 'delete'
 			puts "Enter the first name of the user you wish to delete"
 			delete_name = gets.chomp
