@@ -66,7 +66,7 @@ class Runner
 
 
 		elsif user_input == 'display all' #raise an exception here if there is no contact
-				puts db.display_all_contacts
+				db.display_all_contacts
 		
 		elsif user_input == 'exit'
 			new = false
@@ -74,7 +74,7 @@ class Runner
 		elsif user_input == 'display contact'
 			puts "Enter the first name of the contact you wish to display"
 			contact_name = gets.chomp.downcase
-			db.display_particular_contact(contact_name)
+			puts db.display_particular_contact(contact_name)
 
 		elsif user_input == 'display attribute'
 			puts "Enter the attribute you wish to see all contacts according to"

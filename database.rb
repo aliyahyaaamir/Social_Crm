@@ -29,7 +29,7 @@ class Database
 	def display_all_contacts
 
 		@contacts.each do |c|
-			return "\nID: 	        #{c.id}\nFirst Name: 	#{c.firstname}\nLast Name: 	#{c.lastname}\nEmail: 	        #{c.email}\nNotes: 	        #{c.notes}"
+			puts "\nID: 	        #{c.id}\nFirst Name: 	#{c.firstname}\nLast Name: 	#{c.lastname}\nEmail: 	        #{c.email}\nNotes: 	        #{c.notes}"
 		end
 
 	end
@@ -37,7 +37,7 @@ class Database
 	def display_particular_contact(contact_name)
 		@contacts.each do |contact|
 			if contact.firstname == contact_name
-				puts "ID: 	#{contact.id}\nFirst Name: 	#{contact.firstname}\nLast Name: 	#{contact.lastname}\nEmail: 	#{contact.email}\nNotes: 	#{contact .notes}"
+				return "ID: 	#{contact.id}\nFirst Name: 	#{contact.firstname}\nLast Name: 	#{contact.lastname}\nEmail: 	#{contact.email}\nNotes: 	#{contact.notes}"
 			end
 		end
 	end
