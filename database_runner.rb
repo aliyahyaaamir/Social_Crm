@@ -28,10 +28,9 @@ class Runner
 		id = 0
 		while (new == true)
 		user_input = gets.chomp
-		if user_input == 'add'
-
+		if user_input.downcase == 'add'
 			puts "Enter your first name"
-			firstname = gets.chomp.downcase
+			firstname = gets.chomp.downcase 
 
 			puts "Enter your last name\n"
 			lastname = gets.chomp.downcase
@@ -67,7 +66,7 @@ class Runner
 
 
 		elsif user_input == 'display all' #raise an exception here if there is no contact
-				db.display_all_contacts
+				puts db.display_all_contacts
 		
 		elsif user_input == 'exit'
 			new = false
@@ -89,7 +88,7 @@ class Runner
 
 			if (db.delete_contact(delete_name) == true)
 				puts "-----------------------------------"
-				puts "#{delete_name} was deleted\n"
+				puts "#{delete_name} was deleted as a contact\n"
 				puts "-----------------------------------"
 			else
 				puts "-----------------------------------"

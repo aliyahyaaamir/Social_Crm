@@ -13,7 +13,7 @@ class Database
 			@contacts.each do |contact|
 				if contact.firstname == name
 					if attribute == "first name"
-						contact.firstname = change_in_attribute
+						 contact.firstname = change_in_attribute
 					elsif attribute == "last name"
 						contact.lastname = change_in_attribute
 					elsif attribute == "email"
@@ -21,6 +21,7 @@ class Database
 					elsif attribute == "notes"
 						contact.notes = change_in_attribute
 					end
+					return
 				end
 			end
 	end
@@ -28,7 +29,7 @@ class Database
 	def display_all_contacts
 
 		@contacts.each do |c|
-			puts "\nID: 	        #{c.id}\nFirst Name: 	#{c.firstname}\nLast Name: 	#{c.lastname}\nEmail: 	        #{c.email}\nNotes: 	        #{c.notes}"
+			return "\nID: 	        #{c.id}\nFirst Name: 	#{c.firstname}\nLast Name: 	#{c.lastname}\nEmail: 	        #{c.email}\nNotes: 	        #{c.notes}"
 		end
 
 	end
